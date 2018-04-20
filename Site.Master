@@ -1,0 +1,95 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Site.master.vb" Inherits="MJBUMAC1.Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="Scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="Scripts/Global.js"></script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true">
+    </asp:ScriptManager>
+    <div class="page">
+        <div class="header" style="background-color: #ffffff; position: absolute; width: 960px;
+            z-index: 9000">
+            <div class="title" style="background-color: #ffffff; margin-top: -2px; width: 960px;
+                vertical-align: top text-top; text-align: right; position: fixed">
+                <asp:UpdatePanel ID="updt_PanMaster" runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <table width="960px">
+                            <tr>
+                                <td align="left" width="400px">
+                                    <asp:Label ID="lbl_MainAddress" runat="server" Text="" Style="color: #000000"></asp:Label>
+                                </td>
+                                <td align="right" width="560px">
+                                    <img src="Images/UMAC06212007.jpg" alt="" />
+                                </td>
+                            </tr>
+                        </table>
+                        <%--  </div>
+           <div style="background-color: #C6090F; visibility: visible; position: fixed; width: 960px;
+                margin-top: 45px; z-index: 9000; height:30px; padding:0px; vertical-align:top text-top" id="DivMainMenu">--%>
+                        <div class="MenuBarShadow" style="position: absolute">
+                            <div style="width: 965px; background-color: #C6090F; margin-left: -3px">
+                                <asp:Table ID="tbl_MainMenu" runat="server" Width="960px" Style="padding: 0px; height: 10px;
+                                    background-color: #C6090F;">
+                                    <asp:TableRow>
+                                        <asp:TableCell ID="td_CellMainLogin" HorizontalAlign="Left" VerticalAlign="Top" Style="white-space: nowrap">
+                                            <asp:Menu ID="NavigationDefaultMenu" runat="server" CssClass="menu" EnableViewState="false"
+                                                IncludeStyleBlock="false" Orientation="Horizontal" StaticDisplayLevels="2" StaticSubMenuIndent="10"
+                                                DynamicHorizontalOffset="10">
+                                                <Items>
+                                                    <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" ImageUrl="/Images/Home.gif" />
+                                                    <asp:MenuItem NavigateUrl="~/About.aspx" Text="About" ImageUrl="/Images/Page.gif" />
+                                                    <asp:MenuItem NavigateUrl="~/Login.aspx?Logoff=N" Text="Login" ImageUrl="/Images/Locked.gif" />
+                                                </Items>
+                                            </asp:Menu>
+                                        </asp:TableCell>
+                                        <asp:TableCell ID="td_CellMainMenu" HorizontalAlign="Left" VerticalAlign="Top" Visible="false"
+                                            Style="white-space: nowrap">
+                                            <asp:Menu ID="NavigationMainMenu" runat="server" CssClass="menu" EnableViewState="false"
+                                                IncludeStyleBlock="false" Orientation="Horizontal" StaticEnableDefaultPopOutImage="true"
+                                                DynamicEnableDefaultPopOutImage="true" StaticDisplayLevels="2" StaticSubMenuIndent="10"
+                                                DynamicHorizontalOffset="10">
+                                                <Items>
+                                                    <asp:MenuItem NavigateUrl="~/CompanyUpdate.aspx" Text="Company Updates" ImageUrl="/Images/Gear2.gif" />
+                                                    <asp:MenuItem NavigateUrl="~/Agents.aspx" Text="Agents" ImageUrl="/Images/Agent.gif" />
+                                                    <asp:MenuItem NavigateUrl="~/Cargo.aspx" Text="Cargo" ImageUrl="/Images/BoxSmall.gif" />
+                                                    <asp:MenuItem NavigateUrl="~/Customer.aspx" Text="Customer" ImageUrl="/Images/Customers.gif" />
+                                                </Items>
+                                            </asp:Menu>
+                                        </asp:TableCell>
+                                        <asp:TableCell ID="td_CellMainLogoff" HorizontalAlign="Right" VerticalAlign="Top"
+                                            Visible="false" Style="white-space: nowrap">
+                                            <asp:Menu ID="NavigationMainLogoff" runat="server" CssClass="menu" EnableViewState="false"
+                                                IncludeStyleBlock="false" Orientation="Horizontal" StaticDisplayLevels="2" StaticSubMenuIndent="10"
+                                                DynamicHorizontalOffset="10">
+                                                <Items>
+                                                    <asp:MenuItem NavigateUrl="~/Login.aspx?Logoff=Y" Text="Logoff" ImageUrl="/Images/Logout.gif" />
+                                                </Items>
+                                            </asp:Menu>
+                                        </asp:TableCell>
+                                    </asp:TableRow>
+                                </asp:Table>
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+            <div class="main" style="margin-top: 100px; padding-bottom: 50px;">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+    </form>
+</body>
+</html>
